@@ -1,4 +1,10 @@
-# PT_BR Questão 03 - Sistema de Cripto Moedas 
+# PT_BR Sistema de Cripto Moedas 
+
+## Disclaimer
+
+Este repositório é uma cópia do subdiretório "progDistConc/bimestre02/questao03" do repositório "progDistConc" usado para uma atividade da disciplina "Programação Distribuída e Concorrente" do curso de Ciência da Computação. O repositório principal pode ser encontrado [aqui](https://github.com/Andreprado20/progDistConc).
+
+O intuito deste repositório é separar o projeto de uma das questões do bimestre 02 em um repositório próprio para fins de portfólio e também para facilitação de deploy.
 
 ## Introdução
 
@@ -10,7 +16,19 @@ Para ver melhor o código e as explicações precisas do servidor, digite o coma
 
 Para entender exatamente a atividade proposta, volte para o diretorio bimestre02 para acessar o Arquivo PDF com as Atividades Propostas
 
-# EN Question 03 - Cryptocurrency System
+## Links
+
+[API em Flask](https://prog-dist-conc03.vercel.app/api/usuarios) (Verificar Documentação no diretório `server` para acessar cada entidade)
+
+[Página Cliente publicada na Vercel](https://prog-dist-conc03-frontend.vercel.app/)
+
+# EN - Cryptocurrency System
+
+## Disclaimer
+
+This repository is a copy of the "progDistConc/bimestre02/questao03" subdirectory of the "progDistConc" repository used for an activity in the "Distributed and Concurrent Programming" discipline of the Computer Science course. The main repository can be found [here](https://github.com/Andreprado20/progDistConc).
+
+The purpose of this repository is to separate the project of one of the questions from the 2nd quarter into its own repository for portfolio purposes and also to facilitate deployment.
 
 ## Introduction
 
@@ -21,3 +39,9 @@ To better view the server's code and detailed explanations, use the command `cd 
 To better view the frontend's code and detailed explanations, use the command `cd frontend`, or open the directory using your GitHub or Operating System's graphical interface.
 
 To fully understand the proposed activity, navigate back to the `bimestre02` directory to access the PDF file with the Proposed Activities.
+
+## Links
+
+[Flask API](https://prog-dist-conc03.vercel.app/api/usuarios) (Check documentation on `server` directory to access each entity)
+
+[Client Page published at Vercel](https://prog-dist-conc03-frontend.vercel.app/)
