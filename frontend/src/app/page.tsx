@@ -26,7 +26,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_BASE_URL = "https://crypto-system-backend-jn7vgtrlu.vercel.app/api";
+const API_BASE_URL = "https://crypto-system-backend-kappa.vercel.app/api";
 
 type Entity = "usuarios" | "carteiras" | "criptoativos" | "historico_transacao" | "transacao" ;
 
