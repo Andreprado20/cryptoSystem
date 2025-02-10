@@ -18,9 +18,9 @@ Para entender exatamente a atividade proposta, volte para o diretorio bimestre02
 
 ## Links
 
-[API em Flask](https://prog-dist-conc03.vercel.app/api/usuarios) (Verificar Documentação no diretório `server` para acessar cada entidade)
+[API em Flask](https://crypto-system-backend-kappa.vercel.app/api/usuarios) (Verificar Documentação no diretório `server` para acessar cada entidade)
 
-[Página Cliente publicada na Vercel](https://prog-dist-conc03-frontend.vercel.app/)
+[Página Cliente publicada na Vercel](https://crypto-system-frontend-eta.vercel.app/)
 
 # EN - Cryptocurrency System
 
@@ -42,6 +42,6 @@ To fully understand the proposed activity, navigate back to the `bimestre02` dir
 
 ## Links
 
-[Flask API](https://prog-dist-conc03.vercel.app/api/usuarios) (Check documentation on `server` directory to access each entity)
+[Flask API](https://crypto-system-backend-kappa.vercel.app/api/usuarios) (Check documentation on `server` directory to access each entity)
 
-[Client Page published at Vercel](https://prog-dist-conc03-frontend.vercel.app/)
+[Client Page published at Vercel](https://crypto-system-frontend-eta.vercel.app/)
