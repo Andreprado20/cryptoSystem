@@ -16,6 +16,10 @@ Para ver melhor o código e as explicações precisas do servidor, digite o coma
 
 Para entender exatamente a atividade proposta, volte para o diretorio bimestre02 para acessar o Arquivo PDF com as Atividades Propostas
 
+## Novidades
+
+Esse repositório contem também uma versão mobile dessa mesma aplicação usando React Native, que está ainda sendo desenvolvida e já é capaz de executar as ações CRUD da aplicação original.
+
 ## Links
 
 [API em Flask](https://crypto-system-backend-kappa.vercel.app/api/usuarios) (Verificar Documentação no diretório `server` para acessar cada entidade)
@@ -39,6 +43,10 @@ To better view the server's code and detailed explanations, use the command `cd 
 To better view the frontend's code and detailed explanations, use the command `cd frontend`, or open the directory using your GitHub or Operating System's graphical interface.
 
 To fully understand the proposed activity, navigate back to the `bimestre02` directory to access the PDF file with the Proposed Activities.
+
+## News
+
+This repository also contains a mobile version of this same application using React Native, which is still being developed and is already capable of executing the CRUD actions of the original application.
 
 ## Links
 
