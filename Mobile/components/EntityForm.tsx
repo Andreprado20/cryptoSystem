@@ -36,9 +36,13 @@ const EntityForm: React.FC<EntityFormProps> = ({ isVisible, onClose, onSubmit, f
         <Text style={styles.title}>{isEditing ? "Edit" : "Add New"}</Text>
         {fields.map((field) => (
           <View key={field} style={styles.fieldContainer}>
-            <Text style={styles.label}>{field}</Text>
-            {field === "tipo" && formData.tipo ? (
-              <Picker selectedValue={formData[field]} onValueChange={(value) => handleChange(field, value)}>
+            <Text style={styles.label}>{field.charAt(0).toUpperCase() + field.slice(1)}</Text>
+            {field === "tipo" ? (
+              <Picker
+                selectedValue={formData[field]}
+                onValueChange={(value) => handleChange(field, value)}
+                style={styles.picker}
+              >
                 <Picker.Item label="Compra" value="compra" />
                 <Picker.Item label="Venda" value="venda" />
                 <Picker.Item label="Transferência" value="transferencia" />
@@ -49,13 +53,25 @@ const EntityForm: React.FC<EntityFormProps> = ({ isVisible, onClose, onSubmit, f
                 value={formData[field] || ""}
                 onChangeText={(value) => handleChange(field, value)}
                 secureTextEntry={field === "senha"}
+                placeholder={`Enter ${field}`}
               />
             )}
           </View>
         ))}
         <View style={styles.buttonContainer}>
-          <Button title="Cancel" onPress={onClose} type="outline" />
-          <Button title={isEditing ? "Update" : "Create"} onPress={handleSubmit} />
+          <Button
+            title="Cancel"
+            onPress={onClose}
+            type="outline"
+            buttonStyle={styles.cancelButton}
+            titleStyle={styles.cancelButtonText}
+          />
+          <Button
+            title={isEditing ? "Update" : "Create"}
+            onPress={handleSubmit}
+            buttonStyle={styles.submitButton}
+            titleStyle={styles.submitButtonText}
+          />
         </View>
       </View>
     </Modal>
@@ -66,12 +82,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    color: "#000000",
   },
   fieldContainer: {
     marginBottom: 15,
@@ -79,17 +96,41 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 5,
+    color: "#000000",
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
-    padding: 10,
+    borderColor: "#cccccc",
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 16,
+  },
+  picker: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    borderRadius: 8,
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     marginTop: 20,
+  },
+  cancelButton: {
+    borderColor: "#000000",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 32,
+  },
+  cancelButtonText: {
+    color: "#000000",
+  },
+  submitButton: {
+    backgroundColor: "#2892c3",
+    borderRadius: 8,
+    paddingHorizontal: 32,
+  },
+  submitButtonText: {
+    color: "#ffffff",
   },
 })
 

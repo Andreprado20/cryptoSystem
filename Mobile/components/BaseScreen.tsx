@@ -2,10 +2,11 @@
 
 import type React from "react"
 import { useState, useEffect } from "react"
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native"
+import { View, Text, ScrollView, StyleSheet } from "react-native"
 import axios from "axios"
 import { Button } from "react-native-elements"
 import EntityForm from "./EntityForm"
+import Card from "./Card"
 
 const API_BASE_URL = "https://crypto-system-backend-kappa.vercel.app/api"
 
@@ -34,7 +35,6 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
       setData(response.data)
     } catch (error) {
       console.error("Error fetching data:", error)
-      // You might want to use a toast library for React Native here
     } finally {
       setIsLoading(false)
     }
@@ -79,44 +79,24 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
     setIsDialogOpen(true)
   }
 
-  const renderItem = ({ item }: { item: any }) => (
-    <View style={styles.row}>
-      {displayFields.map((field) => (
-        <Text key={field} style={styles.cell}>
-          {item[field]}
-        </Text>
-      ))}
-      <View style={styles.actions}>
-        <TouchableOpacity onPress={() => handleEdit(item)}>
-          <Text style={styles.actionText}>Edit</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleDelete(item.id)}>
-          <Text style={styles.actionText}>Delete</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-
   return (
     <View style={styles.container}>
       {isLoading ? (
-        <Text>Loading...</Text>
+        <View style={styles.loadingContainer}>
+          <Text>Loading...</Text>
+        </View>
       ) : (
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => (item.id ? item.id.toString() : index.toString())}
-          ListHeaderComponent={() => (
-            <View style={styles.header}>
-              {displayFields.map((field) => (
-                <Text key={field} style={styles.headerCell}>
-                  {field}
-                </Text>
-              ))}
-              <Text style={styles.headerCell}>Actions</Text>
-            </View>
-          )}
-        />
+        <ScrollView style={styles.scrollView}>
+          {data.map((item) => (
+            <Card
+              key={item.id}
+              data={item}
+              displayFields={displayFields}
+              onEdit={() => handleEdit(item)}
+              onDelete={() => handleDelete(item.id)}
+            />
+          ))}
+        </ScrollView>
       )}
       <EntityForm
         isVisible={isDialogOpen}
@@ -126,15 +106,19 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
         initialData={formData}
         isEditing={isEditing}
       />
-      <Button
-        title="Add New"
-        onPress={() => {
-          setFormData({})
-          setIsEditing(false)
-          setEditId(null)
-          setIsDialogOpen(true)
-        }}
-      />
+      <View style={styles.addButtonContainer}>
+        <Button
+          title="Add New"
+          onPress={() => {
+            setFormData({})
+            setIsEditing(false)
+            setEditId(null)
+            setIsDialogOpen(true)
+          }}
+          buttonStyle={styles.addButton}
+          titleStyle={styles.addButtonText}
+        />
+      </View>
     </View>
   )
 }
@@ -142,34 +126,27 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    backgroundColor: "#f5f5f5",
   },
-  header: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-    paddingBottom: 10,
-    marginBottom: 10,
-  },
-  headerCell: {
-    flex: 1,
-    fontWeight: "bold",
-  },
-  row: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
-    paddingVertical: 10,
-  },
-  cell: {
+  scrollView: {
     flex: 1,
   },
-  actions: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  actionText: {
-    color: "blue",
+  addButtonContainer: {
+    padding: 16,
+  },
+  addButton: {
+    backgroundColor: "#2892c3",
+    borderRadius: 16,
+    paddingVertical: 12,
+  },
+  addButtonText: {
+    fontSize: 18,
+    fontWeight: "600",
   },
 })
 

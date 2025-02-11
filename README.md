@@ -14,7 +14,7 @@ Para ver melhor o código e as explicações precisas do servidor, digite o coma
 
 Para ver melhor o código e as explicações precisas do servidor, digite o comando ```cd frontend```, ou abra o diretório com sua interface gráfica do GitHub ou Sistema Operacional.
 
-Para entender exatamente a atividade proposta, volte para o diretorio bimestre02 para acessar o Arquivo PDF com as Atividades Propostas
+Para entender exatamente a atividade proposta, acesse o Arquivo PDF com as Atividades Propostas
 
 ## Novidades
 
@@ -42,7 +42,7 @@ To better view the server's code and detailed explanations, use the command `cd 
 
 To better view the frontend's code and detailed explanations, use the command `cd frontend`, or open the directory using your GitHub or Operating System's graphical interface.
 
-To fully understand the proposed activity, navigate back to the `bimestre02` directory to access the PDF file with the Proposed Activities.
+To fully understand the proposed activity, access the PDF file with the Proposed Activities.
 
 ## News
 
