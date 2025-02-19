@@ -86,7 +86,7 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
     setRefreshing(true)
     setTimeout(()=>{
       setRefreshing(false)
-    },1000)
+    },4000)
     fetchData()
   },[])
 
