@@ -1,12 +1,14 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { useState, useEffect } from "react"
 import { View, Text, ScrollView, StyleSheet } from "react-native"
 import axios from "axios"
 import { Button } from "react-native-elements"
 import EntityForm from "./EntityForm"
 import Card from "./Card"
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
+import { RefreshControl } from "react-native-gesture-handler"
 
 const API_BASE_URL = "https://crypto-system-backend-kappa.vercel.app/api"
 
@@ -23,6 +25,7 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
   const [isEditing, setIsEditing] = useState(false)
   const [editId, setEditId] = useState<number | null>(null)
   const [formData, setFormData] = useState<any>({})
+  const [refreshing, setRefreshing] = useState(false)
 
   useEffect(() => {
     fetchData()
@@ -79,14 +82,23 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
     setIsDialogOpen(true)
   }
 
+  const onRefresh = React.useCallback(()=>{
+    setRefreshing(true)
+    setTimeout(()=>{
+      setRefreshing(false)
+    },1000)
+    fetchData()
+  },[])
+
   return (
-    <View style={styles.container}>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <Text>Loading...</Text>
         </View>
       ) : (
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={styles.scrollView} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
           {data.map((item) => (
             <Card
               key={item.id}
@@ -119,7 +131,8 @@ const BaseScreen: React.FC<BaseScreenProps> = ({ entity, displayFields, formFiel
           titleStyle={styles.addButtonText}
         />
       </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
